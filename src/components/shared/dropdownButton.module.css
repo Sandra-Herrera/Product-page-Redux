@@ -1,0 +1,53 @@
+.buttonDropDown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-color: #5B00A2;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #5B00A2;
+    height: 42px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+
+.navUl{
+    border-color: #5B00A2;
+    display: flex;
+    flex-flow: column;
+}
+.navButton{
+  display: block;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  line-height: 35px;
+  /* this is the hieght of the menu items */
+  color: #5B00A2;
+  background-color: white;
+  margin-top: 0px;
+  border: none;
+  border-bottom: 2px solid #5B00A2;
+  /* list item font color */
+}
+
+.nav{
+    margin: 0;
+    padding: 0;
+}
+.nav li {
+    display: block;
+    position: relative;
+    float: left;
+}
+.navUl {
+    position: absolute;
+    padding: 0;
+    left: 5%;
+    width: 90%;
+    z-index: 1;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

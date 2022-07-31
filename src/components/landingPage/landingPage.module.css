@@ -1,0 +1,16 @@
+.landingContainer{
+    display: grid;
+    grid-template: "l r";
+    grid-template-columns: 10% 90%;
+        
+
+
+}
+
+.rightContainer{
+    grid-area: r;
+}
+
+.leftContainer{
+    grid-area: l;
+}
