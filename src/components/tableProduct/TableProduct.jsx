@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./tableProduct.module.css";
 import { Table } from "reactstrap";
 import { Icon } from "@iconify/react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../store/slices/productsThunk";
+import Moment from 'moment';
 
 const TableProduct = () => {
+  const { products } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
   return (
     <>
       <Table responsive>
@@ -18,79 +28,68 @@ const TableProduct = () => {
             <th className={styles.theadTitle}>
               SKU SIMPLE
               <button className={styles.sortButton}>
-                <Icon icon="carbon:chevron-sort"  width="20" height="30" />{" "}
+                <Icon icon="carbon:chevron-sort" width="20" height="30" />{" "}
               </button>
             </th>
             <th className={styles.theadTitle}>
               SKU
               <button className={styles.sortButton}>
-                <Icon icon="carbon:chevron-sort"  width="20" height="30" />{" "}
+                <Icon icon="carbon:chevron-sort" width="20" height="30" />{" "}
               </button>
             </th>
             <th className={styles.theadTitle}>
               UPC
               <button className={styles.sortButton}>
-                <Icon icon="carbon:chevron-sort"  width="20" height="30" />{" "}
+                <Icon icon="carbon:chevron-sort" width="20" height="30" />{" "}
               </button>
             </th>
             <th className={styles.theadTitle}>
               PRECIO
               <button className={styles.sortButton}>
-                <Icon icon="carbon:chevron-sort"  width="20" height="30" />{" "}
+                <Icon icon="carbon:chevron-sort" width="20" height="30" />{" "}
               </button>
             </th>
             <th className={styles.theadTitle}>
               FECHA DE CARGA
               <button className={styles.sortButton}>
-                <Icon icon="carbon:chevron-sort"  width="20" height="30" />{" "}
+                <Icon icon="carbon:chevron-sort" width="20" height="30" />{" "}
               </button>
             </th>
             <th className={styles.theadTitle}>
               ESTADO
               <button className={styles.sortButton}>
-                <Icon icon="carbon:chevron-sort"  width="20" height="30" />{" "}
+                <Icon icon="carbon:chevron-sort" width="20" height="30" />{" "}
               </button>
             </th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td scope="row">Botella reciclada de 100ml</td>
-            <td>BO-03842552-P </td>
-            <td>TA-03842552-P</td>
-            <td>003842</td>
-            <td>$ 125.00</td>
-            <td>27/07/2022</td>
-            <td>
-              <button className={styles.publishedButton}>
-                Publicado
-              </button>
-            </td>
-            <td>
-              <button className={styles.menuPoints}>
-                <Icon icon="charm:menu-kebab" color="#5b00a2" width="20" height="22" />
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td scope="row">Botella reciclada de 100ml</td>
-            <td>BO-03842552-P </td>
-            <td>TA-03842552-P</td>
-            <td>003842</td>
-            <td>$ 125.00</td>
-            <td>27/07/2022</td>
-            <td>
-              <button className={styles.publishedButton}>
-                Publicado
-              </button>
-            </td>
-            <td>
-              <button className={styles.menuPoints}>
-                <Icon icon="charm:menu-kebab" color="#5b00a2" width="20" height="22" />
-              </button>
-            </td>
-          </tr>
+          {products.map((product, index) => {
+            return (
+              <tr key={index}>
+                <td scope="row">{product.product_name}</td>
+                <td>{product.simple_sku}</td>
+                <td>{product.sku} </td>
+                <td>{product.upc}</td>
+                <td>{product.price}</td>
+                <td>{Moment(product.created_at).format('DD/MM/YYYY')}</td>
+                <td>
+                  <button className={styles.publishedButton}>Publicado</button>
+                </td>
+                <td>
+                  <button className={styles.menuPoints}>
+                    <Icon
+                      icon="charm:menu-kebab"
+                      color="#5b00a2"
+                      width="20"
+                      height="22"
+                    />
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </Table>
     </>
