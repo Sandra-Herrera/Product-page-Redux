@@ -7,10 +7,12 @@ import NavBarArea from "../headerProduct/HeaderProduct";
 import TableProduct from "../tableProduct/TableProduct";
 import Footer from "../footer/Footer";
 import LoadProduct from "../loadProduct/LoadProduct";
+import PopUp from "../popUp/PopUp";
 
 const LandingPage = () => {
   return (
     <>
+
       <div className={styles.landingContainer}>
         <section className={styles.rightContainer}>
           <BreadcrumbArea />
@@ -24,6 +26,7 @@ const LandingPage = () => {
                   <>
                     <NavBarArea />
                     <TableProduct />
+                    <PopUp/>
                     <Footer />
                   </>
                 }

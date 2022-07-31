@@ -68,7 +68,7 @@ const TableProduct = () => {
           {products.map((product, index) => {
             return (
               <tr key={index}>
-                <td scope="row">{product.product_name}</td>
+                <td>{product.product_name}</td>
                 <td>{product.simple_sku}</td>
                 <td>{product.sku} </td>
                 <td>{product.upc}</td>

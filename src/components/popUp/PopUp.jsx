@@ -1,61 +1,71 @@
-import  { React, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input, Label, Form, FormGroup } from 'reactstrap';
+import React from "react";
+import styles from "./popUp.module.css";
+import { Icon } from "@iconify/react";
+// import Swal from "sweetalert2";
 
-const PopUp = (props) => {
-        const {
-          className
-        } = props;
-        const [modal, setModal] = useState(false);
-        const [backdrop, setBackdrop] = useState(true);
-        const [keyboard, setKeyboard] = useState(true);
-      
-        const toggle = () => setModal(!modal);
-      
-        const changeBackdrop = e => {
-          let value = e.target.value;
-          if (value !== 'static') {
-            value = JSON.parse(value);
-          }
-          setBackdrop(value);
-        }
-      
-        const changeKeyboard = e => {
-          setKeyboard(e.currentTarget.checked);
-        }
-
-    return(
-        <>
-    <div>
-      <Form inline onSubmit={(e) => e.preventDefault()}>
-        <FormGroup>
-          <Label for="backdrop">Backdrop value</Label>{' '}
-          <Input type="select" name="backdrop" id="backdrop" onChange={changeBackdrop}>
-            <option value="true">true</option>
-            <option value="false">false</option>
-            <option value="static">"static"</option>
-          </Input>
-        </FormGroup>
-        <FormGroup className="mx-2" check>
-          <Label check>
-            <Input type="checkbox" checked={keyboard} onChange={changeKeyboard} /> Keyboard
-          </Label>
-        </FormGroup>
-        {' '}
-        <Button color="danger" onClick={toggle}>Click Me</Button>
-      </Form>
-      <Modal isOpen={modal} toggle={toggle} className={className} backdrop={backdrop} keyboard={keyboard}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
-        <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
-        </ModalFooter>
-      </Modal>
-    </div>
-        </>
-    );
+export default function PopUp() {
+  return false ? (
+    <>
+      <section className={styles.modal}>
+        <section className={styles.overlay}></section>
+        <section className={styles.modalContent}>
+            <span
+              className={styles.close}
+              // onClick={onClickCloseModal}
+            >
+              &times;
+            </span>
+          {true ? (
+            <>
+            <Icon icon="lucide:check-circle" color="#67c657" width="80" height="80" />
+            <h2 className={styles.confirmQuestion}>
+              Éxito
+            </h2>
+            <p className={styles.confirmMessage}>
+              El producto ha sido eliminado correctamente.
+            </p>
+            <section className={styles.modalButtonsArea}>
+              <button
+                className={styles.deleteButton}
+                // onClick={}
+              >
+                Entendido
+              </button>
+            </section>
+          </>
+          ) : (
+            <>
+              <Icon
+                icon="akar-icons:circle-alert"
+                color="#ff9f43"
+                width="80"
+                height="80"
+              />
+              <h2 className={styles.confirmQuestion}>
+                Deseas eliminar el producto?
+              </h2>
+              <p className={styles.confirmMessage}>
+                Eliminar un producto es una acción permanente y no podrás
+                recuperar el producto eliminado.
+              </p>
+              <section className={styles.modalButtonsArea}>
+                <button
+                  className={styles.deleteButton}
+                  // onClick={}
+                >
+                  Delete
+                </button>
+                <button
+                  className={styles.cancelButton}
+                  // onClick={toggleModal}
+                >
+                  Cancel
+                </button>
+              </section>
+            </>
+          )}
+        </section>
+      </section>
+    </>
+  ) : null;
 }
-
-export default PopUp;
