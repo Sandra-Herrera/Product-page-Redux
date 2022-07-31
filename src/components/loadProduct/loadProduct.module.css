@@ -1,0 +1,94 @@
+.LoadContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productTitle{
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color:#4C117B;
+}
+
+.formProducts{
+    display: flex;
+    flex-direction: column;
+}
+
+.loadLabel{
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color:#242424;
+}
+
+.loadInputs{
+    width: 800px;
+    height: 35px;
+    border: solid 1px;
+    border-color: #D8D6DE;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+::placeholder {
+    color:rgba(91, 0, 162, 0.5);
+    font-size: 14px;
+}
+
+.loadBottomArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cancelButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-color: #FF1515;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FF1515;
+    height: 42px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.loadButtonsArea{
+    display: flex;
+    flex-direction: row;
+}
+
+.saveProduct{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-color: #5B00A2;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5B00A2;
+    height: 42px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.loadProductButton{
+    width: 193px;
+    height: 42px;
+    border-radius: 5px;
+    border-color: #5B00A2;
+    background-color: #5B00A2;
+    padding: 10px, 23px, 10px, 23px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #FFFF;
+}
