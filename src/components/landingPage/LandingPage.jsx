@@ -9,6 +9,9 @@ import Footer from "../footer/Footer";
 import LoadProduct from "../loadProduct/LoadProduct";
 import { getProducts } from "../../store/slices/productsThunk";
 import { useDispatch } from "react-redux";
+import logo from '../../img/logo.svg';
+import line from '../../img/line.svg';
+import { Icon } from "@iconify/react";
 
 const LandingPage = () => {
 
@@ -47,7 +50,20 @@ const LandingPage = () => {
             </Routes>
           </BrowserRouter>
         </section>
-        <section className={styles.leftContainer}>test</section>
+        <section className={styles.leftContainer}>
+          <img alt="logo" src={logo} className={styles.logo}></img>
+
+          <section className={styles.iconLeft}>
+            <Icon icon="bx:home-alt" color="#676767" width="20" height="20" className={styles.menu}/>
+            <img alt="line" src={line} className={styles.menu}></img>
+            <Icon icon="bi:box-seam" color="#5b00a2" width="24" height="24" hFlip={true} className={styles.menu}/>
+            <Icon icon="bx:bell" color="#676767" width="24" height="24" className={styles.menu}/>
+            <Icon icon="bi:gear" color="#676767" width="24" height="24" className={styles.menu}/>
+          </section>
+
+
+
+        </section>
       </div>
     </>
   );

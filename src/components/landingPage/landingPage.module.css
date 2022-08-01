@@ -9,8 +9,27 @@
 
 .rightContainer{
     grid-area: r;
+    margin-right: 10px;
 }
 
 .leftContainer{
     grid-area: l;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.iconLeft{
+    margin-top: 46px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.logo{
+    margin-top: 15px;
+}
+
+.menu{
+    margin-bottom: 20px;
 }
