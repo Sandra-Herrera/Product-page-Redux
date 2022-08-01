@@ -1,8 +1,12 @@
 .theadTitle{
-    font-family:sans-serif;
+    font-family:Montserrat;
     font-size:14px;
     font-weight: 600;
     color:#4C117B
+}
+
+.minHeight{
+    min-height: 350px;
 }
 
 .sortButton{
@@ -17,7 +21,18 @@
     border: solid 2px;
     background-color: #FFFF;
     color: rgba(32, 201, 151, 1);
-    font-family: sans-serif;
+    font-family: Montserrat;
+    font-size: 14px;
+}
+
+.publishedYellowButton{
+    width: 200px;
+    height: 35px;
+    border-color: rgba(245, 191, 0, 1);
+    border: solid 2px;
+    background-color: #FFFF;
+    color: rgba(245, 191, 0, 1);
+    font-family: Montserrat;
     font-size: 14px;
 }
 
