@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
+import { Routes, Route, HashRouter, Navigate } from "react-router-dom";
 import {} from "reactstrap";
 import styles from "./landingPage.module.css";
 import BreadcrumbArea from "../breadcrumb/BreadcrumbArea";
@@ -27,7 +27,7 @@ const LandingPage = () => {
       <div className={styles.landingContainer}>
         <section className={styles.rightContainer}>
           <BreadcrumbArea />
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route path="/" element={<Navigate to="/specialProducts" />} />
               <Route
@@ -48,7 +48,7 @@ const LandingPage = () => {
               </>}>
               </Route>
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </section>
         <section className={styles.leftContainer}>
           <img alt="logo" src={logo} className={styles.logo}></img>
