@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import DropdownButton from "../shared/DropdownButton";
 import styles from "./headerProduct.module.css";
 import { Icon } from "@iconify/react";
+import { useDispatch } from "react-redux";
+import { rFilterBySku } from "../../store/slices/productsSlice"
 
 const HeaderProduct = (args) => {
+  const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   useEffect(() =>{
@@ -12,6 +15,11 @@ const HeaderProduct = (args) => {
   },[]);
 
   const toggle = () => setIsOpen(!isOpen);
+
+  const filterBySku = (e) => {
+    const value=e.target.value;
+    dispatch(rFilterBySku({sku:value}));
+  }
 
   return (
     <>
@@ -50,6 +58,7 @@ const HeaderProduct = (args) => {
         <input
           className={styles.searchInput}
           placeholder="Buscar por SKU"
+          onChange={filterBySku}
         ></input>
         <DropdownButton dropdownNameDisplay='Gestionar Columnas' iconName='majesticons:add-column' options={['Gest opt1','Gest opt2']} background="rgba(91, 0, 162, 0.12)"/>
         <button className={styles.filterButton}>

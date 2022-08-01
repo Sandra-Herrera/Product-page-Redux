@@ -4,12 +4,14 @@ export const productsSlice = createSlice({
     name: 'products',
     initialState: {
         products: [],
+        allProducts: [],
         isModalVisible:false,
         confirmDelete:false
     },
     reducers: {
         setProducts: (state, action) => {
-            state.products = action.payload.products
+            state.products = action.payload.products;
+            state.allProducts = action.payload.products;
         },
         addProduct: (state,  action ) => {
             state.products = [...state.products, action.payload.product]
@@ -24,7 +26,12 @@ export const productsSlice = createSlice({
         },
         setConfirmDelete:(state, action)=>{
             state.confirmDelete = action.payload.confirmDelete;
+        },
+        rFilterBySku:(state,  action ) => {
+            state.products = state.allProducts.filter((product)=>{
+                return product.sku.includes(action.payload.sku)
+            });
         }
     }
 });
-export const {setProducts, addProduct, setVibilityModal, removeDeleteProduct, setConfirmDelete} = productsSlice.actions;
+export const {setProducts, addProduct, setVibilityModal, removeDeleteProduct, setConfirmDelete, rFilterBySku} = productsSlice.actions;
