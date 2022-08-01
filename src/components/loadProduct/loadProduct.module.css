@@ -21,6 +21,7 @@
     font-size: 14px;
     font-weight: 600;
     color:#242424;
+    margin-top: 15px;
 }
 
 .loadInputs{
@@ -29,7 +30,10 @@
     border: solid 1px;
     border-color: #D8D6DE;
     border-radius: 4px;
-    margin-bottom: 10px;
+}
+
+.errorMessage{
+    color:#FF1515;
 }
 
 ::placeholder {

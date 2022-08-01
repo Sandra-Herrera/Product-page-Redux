@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DropdownButton from "../shared/DropdownButton";
 import styles from "./headerProduct.module.css";
 import { Icon } from "@iconify/react";
 
 const HeaderProduct = (args) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  useEffect(() =>{
+
+  },[]);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -16,7 +21,7 @@ const HeaderProduct = (args) => {
         </section>
         <section className={styles.rightSection}>
           <DropdownButton dropdownNameDisplay='Acciones masivas' iconName="bi:diagram-2" options={['opt1','opt2']} />
-          <button className={styles.loadProductButton}>
+          <button onClick={() => navigate("/loadProduct")} className={styles.loadProductButton}>
             <Icon icon="akar-icons:plus" color="white" />
             Cargar producto
           </button>

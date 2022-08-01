@@ -73,7 +73,7 @@ const TableProduct = () => {
                 <td>{product.sku} </td>
                 <td>{product.upc}</td>
                 <td>{product.price}</td>
-                <td>{Moment(product.created_at).format('DD/MM/YYYY')}</td>
+                <td>{Moment(new Date(product.created_at)).format('DD/MM/YYYY')}</td>
                 <td>
                   <button className={styles.publishedButton}>Publicado</button>
                 </td>
