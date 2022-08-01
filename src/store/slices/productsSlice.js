@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 export const productsSlice = createSlice({
     name: 'products',
     initialState: {
-        breadcrumbItem: [{displayPath:'Productos',path:'#'},{displayPath:'Productos especializados', path:'/specialProducts'}],
+        breadcrumbItem: [{displayPath:'Productos',path:'#'},{displayPath:'Productos especializados', path:'/product-page-redux/#/specialProducts'}],
         products: [],
         allProducts: [],
         isModalVisible:false,
