@@ -1,70 +1,40 @@
-# Getting Started with Create React App
+# Reto técnico App React - Redux ⚛️💻
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Para el desarrollo de este proyecto utilice React, Redux Toolkit, CSS module, Grid, Flexbox y GitHub.
+El proyecto está disponible tanto de manera local como también en la página de GitHub pages que adjunto a continuación: 
+https://sandra-herrera.github.io/product-page-redux/#/specialProducts
 
-## Available Scripts
 
-In the project directory, you can run:
+A continuación describo los pasos a seguir para ejecutar el proyecto de manera local: 
 
-### `npm start`
+* 1.- Hacer Git Clone del repositorio.
+* 2.- Correr el proyecto con npm start (está customizado en el pakage.json para que corra en el puerto 3001).
+* 3.- Correr la API en el enviroment ( Mockoon ) que me proporcionaste  la cual correrá en el puerto 3000.
+* 4.- En la configuración del enviroment  que me proporcionaste  ( Mockoon ) debes ir al tag "Header" y después hacer click en "add CORS headers".
+![image](https://user-images.githubusercontent.com/97549362/182149826-2e0ff8d9-06f0-4bfd-b45b-573927d568dc.png)
+![image](https://user-images.githubusercontent.com/97549362/182149991-7e421816-abad-45db-8320-993729a79067.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* 5.-Listo!  ya podrás operar la aplicación.
 
-### `npm test`
+# Vistas de interfaz terminada.
+## Tabla con data renderizada de la API
+![image](https://user-images.githubusercontent.com/97549362/182150676-fa5acb02-e919-4163-825d-0c4183deaf98.png)
+## Tabla con filtro por SKU
+![image](https://user-images.githubusercontent.com/97549362/182151133-e3c19530-8256-44f6-8fb3-386662c49fcf.png)
+## Form para cargar un nuevo producto 
+![image](https://user-images.githubusercontent.com/97549362/182151602-34d62fc4-5531-4278-b50d-9b7147b04a5d.png)
+## Productos añadidos a la tabla
+![image](https://user-images.githubusercontent.com/97549362/182152259-7e3dd18b-61f2-43d8-a0e7-0366d58e2cde.png)
+## Modal de eliminación
+![image](https://user-images.githubusercontent.com/97549362/182152422-bc89e110-ebe0-4ce9-86cc-0dac8fe5e914.png)
+## Modal de confirmación
+![image](https://user-images.githubusercontent.com/97549362/182152566-9486d3c2-33d6-42f6-90db-f220b54131c2.png)
+## API 
+![image](https://user-images.githubusercontent.com/97549362/182152704-c5623c93-0084-4d3b-a394-67c5f6c6af8a.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
