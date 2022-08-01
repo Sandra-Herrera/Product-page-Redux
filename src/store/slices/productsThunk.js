@@ -1,4 +1,5 @@
 import { setProducts, addProduct, removeDeleteProduct, setConfirmDelete } from "./productsSlice";
+import Moment from 'moment';
 
 export const getProducts = () => {
   return async (dispatch, getState) => {
@@ -21,7 +22,8 @@ export const postProducts = (product) => {
       .then((response) => response.json())
       .then((addedProduct) => {
         if (addedProduct?.message?.toLowerCase() === "product added") {//change when api return object added
-          dispatch(addProduct({ product: { ...product, ['created_at']: new Date() } }));//change when api return object added
+          product.created_at = Moment().format('DD/MM/YYYY');
+          dispatch(addProduct({ product: product }));//change when api return object added
         }
       });
   };

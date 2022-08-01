@@ -2,5 +2,6 @@
    display: flex;
     align-items: center;
     height: 61px;
+    width: calc(100% + 8px);
    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.12);
 }

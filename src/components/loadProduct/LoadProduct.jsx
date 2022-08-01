@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import styles from "./loadProduct.module.css";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {postProducts} from "../../store/slices/productsThunk";
+import { removeRouteBreadCrumb } from "../../store/slices/productsSlice"
 
 const LoadProduct = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,11 @@ const LoadProduct = () => {
   const navigate = useNavigate();
 
   const [redirect, setRedirect] = useState(false);
+
+  const navigateProducts = () => {
+    dispatch(removeRouteBreadCrumb({breadCrumbItem:{displayPath:"Carga Productos",path:"/loadProduct"}}))
+    navigate("/specialProducts")
+  }
 
   const {
     register,
@@ -36,7 +42,7 @@ const LoadProduct = () => {
     dispatch(postProducts(product));
     reset();
     if(redirect){
-      navigate("/specialProducts");
+      navigateProducts();
     }
   };
 
@@ -53,6 +59,10 @@ const LoadProduct = () => {
   return (
     <>
       <div className={styles.LoadContainer}>
+        <section className={styles.tittleWrapper}>
+          <Icon icon="ic:sharp-less-than" color="#5b00a2" width="34" height="34" />
+          <span className={styles.backTitle}>Cargar Producto</span>
+        </section>
         <span className={styles.productTitle}>Datos del producto</span>
         <form className={styles.formProducts} onSubmit={handleSubmit(onSubmit)}>
           <label className={styles.loadLabel}>Nombre del producto</label>
@@ -135,30 +145,34 @@ const LoadProduct = () => {
            {errors.price && (
             <span className={styles.errorMessage}>{errors.price.message}</span>
           )}
-          <label className={styles.loadLabel}>Estado</label>
-          <input
-            id="status"
-            type={"text"}
+          <label htmlFor="status" className={styles.loadLabel}>
+            Estado:
+          </label>
+          <select 
+            id="status" 
             className={styles.loadInputs}
-            placeholder="Selecciona un estado para el producto"
             {...register("status", {
               required: {
                 value: true,
                 message: "* Campo Requerido",
               },
             })}
-          ></input>
+          >
+            <option value="" disabled className={styles.selectDropdown}>Selecciona un estado para el producto</option>
+            <option value="Publicado">Publicado</option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Retrasado">Retrasado</option>
+          </select>
            {errors.status && (
             <span className={styles.errorMessage}>{errors.status.message}</span>
           )}
 
           {/* Buttons */}
-
           <div className={styles.loadBottomArea}>
             <section>
               <button
                 className={styles.cancelButton}
-                onClick={() => navigate("/specialProducts")}
+                onClick={() => navigateProducts()}
               >
                 Cancelar
               </button>
