@@ -32,12 +32,7 @@ export const postProducts = (product) => {
 export const deleteProduct = (product) => {
   return async (dispatch, getState) => {
     fetch(`http://localhost:3000/products/${product.sku}`, {
-      method: "DELETE",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(product),
+      method: "DELETE"
     })
       .then((response) => response.json())
       .then((addedProduct) => {
