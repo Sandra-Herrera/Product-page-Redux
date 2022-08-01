@@ -3,16 +3,13 @@ import styles from "./tableProduct.module.css";
 import { Table } from "reactstrap";
 import { Icon } from "@iconify/react";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../store/slices/productsThunk";
+import  KebabMenu  from "../kebabMenu/KebabMenu";
+
 import Moment from 'moment';
 
 const TableProduct = () => {
   const { products } = useSelector((state) => state.products);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getProducts());
-  }, []);
+  
 
   return (
     <>
@@ -78,14 +75,7 @@ const TableProduct = () => {
                   <button className={styles.publishedButton}>Publicado</button>
                 </td>
                 <td>
-                  <button className={styles.menuPoints}>
-                    <Icon
-                      icon="charm:menu-kebab"
-                      color="#5b00a2"
-                      width="20"
-                      height="22"
-                    />
-                  </button>
+                  <KebabMenu product={product}></KebabMenu>
                 </td>
               </tr>
             );

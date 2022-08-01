@@ -1,21 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./popUp.module.css";
 import { Icon } from "@iconify/react";
-// import Swal from "sweetalert2";
+import { useDispatch, useSelector } from "react-redux";
+import { setVibilityModal } from "../../store/slices/productsSlice"
+import { deleteProduct } from "../../store/slices/productsThunk"
 
-export default function PopUp() {
-  return false ? (
+
+export default function PopUp(props) {
+
+  const {isModalVisible, confirmDelete} = useSelector((state)=>state.products)
+  const dispatch = useDispatch()
+
+  return isModalVisible ? (
     <>
       <section className={styles.modal}>
         <section className={styles.overlay}></section>
         <section className={styles.modalContent}>
             <span
               className={styles.close}
-              // onClick={onClickCloseModal}
+              onClick={()=>dispatch(setVibilityModal({isModalVisible:false}))}
             >
               &times;
             </span>
-          {true ? (
+          {confirmDelete ? (
             <>
             <Icon icon="lucide:check-circle" color="#67c657" width="80" height="80" />
             <h2 className={styles.confirmQuestion}>
@@ -27,7 +34,7 @@ export default function PopUp() {
             <section className={styles.modalButtonsArea}>
               <button
                 className={styles.deleteButton}
-                // onClick={}
+                onClick={()=>dispatch(setVibilityModal({isModalVisible:false}))}
               >
                 Entendido
               </button>
@@ -51,13 +58,13 @@ export default function PopUp() {
               <section className={styles.modalButtonsArea}>
                 <button
                   className={styles.deleteButton}
-                  // onClick={}
+                  onClick={()=>dispatch(deleteProduct({product:props.product}))}
                 >
                   Delete
                 </button>
                 <button
                   className={styles.cancelButton}
-                  // onClick={toggleModal}
+                  onClick={()=>dispatch(setVibilityModal({isModalVisible:false}))}
                 >
                   Cancel
                 </button>

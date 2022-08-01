@@ -1,4 +1,4 @@
-import { setProducts, addProduct, setVibilityModal} from "./productsSlice";
+import { setProducts, addProduct, removeDeleteProduct, setConfirmDelete } from "./productsSlice";
 
 export const getProducts = () => {
   return async (dispatch, getState) => {
@@ -20,8 +20,29 @@ export const postProducts = (product) => {
     })
       .then((response) => response.json())
       .then((addedProduct) => {
-        dispatch(addProduct({ product: addedProduct }));
-        dispatch(setVibilityModal({isModalVisible:false}))
+        if (addedProduct?.message?.toLowerCase() === "product added") {//change when api return object added
+          dispatch(addProduct({ product: { ...product, ['created_at']: new Date() } }));//change when api return object added
+        }
+      });
+  };
+};
+
+export const deleteProduct = (product) => {
+  return async (dispatch, getState) => {
+    fetch(`http://localhost:3000/products/${product.sku}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(product),
+    })
+      .then((response) => response.json())
+      .then((addedProduct) => {
+        if (addedProduct?.message?.toLowerCase() === "product deleted!") {//change when api return object added
+          dispatch(removeDeleteProduct( product ));//change when api return object added
+          dispatch(setConfirmDelete({ confirmDelete: true }));
+        }
       });
   };
 };

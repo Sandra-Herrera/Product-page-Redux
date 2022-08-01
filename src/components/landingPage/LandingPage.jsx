@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Routes, Route, BrowserRouter, Navigate } from "react-router-dom";
 import {} from "reactstrap";
 import styles from "./landingPage.module.css";
@@ -7,9 +7,17 @@ import NavBarArea from "../headerProduct/HeaderProduct";
 import TableProduct from "../tableProduct/TableProduct";
 import Footer from "../footer/Footer";
 import LoadProduct from "../loadProduct/LoadProduct";
-import PopUp from "../popUp/PopUp";
+import { getProducts } from "../../store/slices/productsThunk";
+import { useDispatch } from "react-redux";
 
 const LandingPage = () => {
+
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+
   return (
     <>
 
@@ -26,7 +34,6 @@ const LandingPage = () => {
                   <>
                     <NavBarArea />
                     <TableProduct />
-                    <PopUp/>
                     <Footer />
                   </>
                 }

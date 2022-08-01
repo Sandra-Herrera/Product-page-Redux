@@ -1,24 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch, useSelector} from "react-redux";
 import styles from "./loadProduct.module.css";
 import { Icon } from "@iconify/react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import {postProducts} from "../../store/slices/productsThunk";
 
 const LoadProduct = () => {
+  const dispatch = useDispatch();
+  
   const navigate = useNavigate();
+
+  const [redirect, setRedirect] = useState(false);
 
   const {
     register,
     handleSubmit,
     setValue,
+    reset,
+    clearErrors,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    const product = {
+      simple_sku:data.skuSimple,
+      sku:data.sku,
+      upc:data.upc,
+      product_name:data.name,
+      price:data.price,
+      //created_at: new Date(), //en la api no existe el create_at
+      enable:data.status?.toLowerCase() === "publicado" ? true : false
+    }
+    
+    dispatch(postProducts(product));
+    reset();
+    if(redirect){
+      navigate("/specialProducts");
+    }
   };
 
   const saveExit = () => {
+    if (Object.keys(errors).length === 0 && errors.constructor === Object){
+      setRedirect(true)
+    }
     handleSubmit(onSubmit);
   };
   const saveClean = () => {
