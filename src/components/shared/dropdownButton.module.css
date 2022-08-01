@@ -5,10 +5,11 @@
     background-color: white;
     border-color: #5B00A2;
     border-radius: 5px;
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 14px;
     color: #5B00A2;
     height: 42px;
+    width: 230px;
     transition-duration: 0.4s;
     cursor: pointer;
 }

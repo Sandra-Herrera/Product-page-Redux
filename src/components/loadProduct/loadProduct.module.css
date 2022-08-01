@@ -2,10 +2,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
+}
+
+.tittleWrapper{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    align-items: center;
+}
+.backTitle{
+    font-family: Montserrat;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 26px;
+    letter-spacing: 0px;
+    text-align: left;
 }
 
 .productTitle{
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 16px;
     font-weight: 700;
     color:#4C117B;
@@ -17,7 +33,7 @@
 }
 
 .loadLabel{
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 14px;
     font-weight: 600;
     color:#242424;
@@ -36,15 +52,21 @@
     color:#FF1515;
 }
 
+.selectDropdown{
+    color:rgba(91, 0, 162, 0.5);
+}
+
 ::placeholder {
     color:rgba(91, 0, 162, 0.5);
     font-size: 14px;
 }
 
 .loadBottomArea{
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-top: 10px;
 }
 
 .cancelButton{
@@ -54,7 +76,7 @@
     background-color: white;
     border-color: #FF1515;
     border-radius: 5px;
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
     color: #FF1515;
@@ -75,7 +97,7 @@
     background-color: white;
     border-color: #5B00A2;
     border-radius: 5px;
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
     color: #5B00A2;
@@ -91,8 +113,9 @@
     border-color: #5B00A2;
     background-color: #5B00A2;
     padding: 10px, 23px, 10px, 23px;
-    font-family: sans-serif;
+    font-family: Montserrat;
     font-size: 14px;
     font-weight: 500;
     color: #FFFF;
+    margin-left: 20px;
 }

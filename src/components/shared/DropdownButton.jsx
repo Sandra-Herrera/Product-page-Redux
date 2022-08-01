@@ -15,7 +15,7 @@ const DropdownButton = (props) => {
           <li>
             <button style={{background:props.background || '#fff'}} className={styles.buttonDropDown} onClick={toggle} onBlur={()=> setDropdownOpen(false)}>
               <Icon icon={props.iconName} color="#5b00a2" width="24" height="24" />
-              {props.dropdownNameDisplay || 'options'}
+              <span>{props.dropdownNameDisplay || 'options'}</span>
               <Icon icon="akar-icons:chevron-down" color="#5b00a2" width="24" height="24" />
             </button>
             <ul className={styles.navUl}>
