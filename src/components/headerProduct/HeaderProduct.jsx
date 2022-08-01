@@ -4,14 +4,14 @@ import DropdownButton from "../shared/DropdownButton";
 import styles from "./headerProduct.module.css";
 import { Icon } from "@iconify/react";
 import { useDispatch } from "react-redux";
-import { rFilterBySku, addRouteBreadCrumb } from "../../store/slices/productsSlice"
+import { rFilterBySku, addRouteBreadCrumb, removeRouteBreadCrumb } from "../../store/slices/productsSlice"
 
 const HeaderProduct = (args) => {
   const dispatch = useDispatch()
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   useEffect(() =>{
-
+    dispatch(removeRouteBreadCrumb({breadCrumbItem:{displayPath:"Carga Productos",path:"/loadProduct"}}))
   },[]);
 
   const navigateLoadProduct = () => {
