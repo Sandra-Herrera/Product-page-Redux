@@ -56,17 +56,18 @@ export default function PopUp(props) {
                 recuperar el producto eliminado.
               </p>
               <section className={styles.modalButtonsArea}>
-                <button
-                  className={styles.deleteButton}
-                  onClick={()=>dispatch(deleteProduct({product:props.product}))}
-                >
-                  Delete
-                </button>
+                
                 <button
                   className={styles.cancelButton}
                   onClick={()=>dispatch(setVibilityModal({isModalVisible:false}))}
                 >
-                  Cancel
+                  Cancelar
+                </button>
+                <button
+                  className={styles.deleteButton}
+                  onClick={()=>dispatch(deleteProduct({productId:props.product.id}))}
+                >
+                  Sí, eliminar
                 </button>
               </section>
             </>

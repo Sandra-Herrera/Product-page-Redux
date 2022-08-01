@@ -80,10 +80,13 @@
 }
 
 .cancelButton {
-    background-color: #7ed090;
-    border-color: #7ed090;
+    background-color: white;
+    border-color: #FF1515;
     border-radius: 5px;
     font-weight: bold;
     padding: 5%;
     font-size: 95%;
+    font-family: Montserrat;
+    color: #FF1515;
+    cursor: pointer;
 }

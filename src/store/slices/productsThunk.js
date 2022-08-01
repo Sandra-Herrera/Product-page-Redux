@@ -3,15 +3,15 @@ import Moment from 'moment';
 
 export const getProducts = () => {
   return async (dispatch, getState) => {
-    const resp = await fetch(`http://localhost:3000/products`);
+    const resp = await fetch(`https://62e795c993938a545bd49913.mockapi.io/products`);
     const data = await resp.json();
-    dispatch(setProducts({ products: data.products }));
+    dispatch(setProducts({ products: data }));
   };
 };
 
 export const postProducts = (product) => {
   return async (dispatch, getState) => {
-    fetch(`http://localhost:3000/products`, {
+    fetch(`https://62e795c993938a545bd49913.mockapi.io/products`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -21,30 +21,26 @@ export const postProducts = (product) => {
     })
       .then((response) => response.json())
       .then((addedProduct) => {
-        if (addedProduct?.message?.toLowerCase() === "product added") {//change when api return object added
-          product.created_at = Moment().format('DD/MM/YYYY');
-          dispatch(addProduct({ product: product }));//change when api return object added
-        }
+        //if (addedProduct?.message?.toLowerCase() === "product added") {//change when api return object added
+          //product.created_at = Moment().format('DD/MM/YYYY');
+          dispatch(addProduct({ product: addedProduct }));//change when api return object added
+        //}
       });
   };
 };
 
-export const deleteProduct = (product) => {
+export const deleteProduct = (productId) => {
   return async (dispatch, getState) => {
-    fetch(`http://localhost:3000/products/${product.sku}`, {
-      method: "DELETE",
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(product),
+    fetch("https://62e795c993938a545bd49913.mockapi.io/products/"+productId.productId, {
+      method: "DELETE"
     })
       .then((response) => response.json())
       .then((addedProduct) => {
-        if (addedProduct?.message?.toLowerCase() === "product deleted!") {//change when api return object added
-          dispatch(removeDeleteProduct( product ));//change when api return object added
-          dispatch(setConfirmDelete({ confirmDelete: true }));
-        }
+        //if (addedProduct?.message?.toLowerCase() === "product deleted!") {//change when api return object added
+          dispatch(setConfirmDelete({ confirmDelete: true }));  
+          dispatch(removeDeleteProduct( {product:addedProduct} ));//change when api return object added
+          
+        //}
       });
   };
 };

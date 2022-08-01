@@ -30,12 +30,13 @@ const LoadProduct = () => {
 
   const onSubmit = (data) => {
     const product = {
+      id: Date.now().toString(),
       simple_sku:data.skuSimple,
       sku:data.sku,
       upc:data.upc,
       product_name:data.name,
       price:data.price,
-      //created_at: new Date(), //en la api no existe el create_at
+      created_at: new Date(), //en la api no existe el create_at
       enable:data.status?.toLowerCase() === "publicado" ? true : false
     }
     

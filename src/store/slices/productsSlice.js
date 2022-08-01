@@ -19,8 +19,8 @@ export const productsSlice = createSlice({
             state.allProducts = [...state.allProducts, action.payload.product];
         },
         removeDeleteProduct: (state,  action ) => {
-            state.products = state.products.filter((product)=>product.sku !== action.payload.product.sku)
-            state.allProducts = state.allProducts.filter((product)=>product.sku !== action.payload.product.sku)
+            state.products = state.products.filter((product)=>product.id !== action.payload.product.id)
+            state.allProducts = state.allProducts.filter((product)=>product.id !== action.payload.product.id)
         },
     
         setVibilityModal:(state, action)=>{
